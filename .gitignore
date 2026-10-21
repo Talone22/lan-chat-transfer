@@ -1,0 +1,22 @@
+# 依赖
+node_modules/
+
+# 便携版 Node 运行时（体积大，随发行包提供，不入库）
+runtime/
+
+# 运行时生成
+.certs/
+.server.pid
+*.log
+
+# 本地测试残留
+.edge-test/
+.edge-test2/
+.edge-shot*/
+.npmcache/
+.test-*.bin
+.pkg-test.bin
+
+# 系统
+.DS_Store
+Thumbs.db

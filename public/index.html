@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>局域网快传</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="logo"></span>
+    <div>
+      <h1>局域网快传</h1>
+      <p class="sub">同一个网络下，和身边的人聊天、互传文件</p>
+    </div>
+  </div>
+  <div class="self">
+    <span class="k">我的 ID</span>
+    <span class="v" id="selfId">…</span>
+  </div>
+</header>
+
+<main>
+  <section class="col left">
+    <h2>附近设备 <span class="hint">打开同一个网址就会出现在这里</span></h2>
+    <div class="peers" id="peers"></div>
+
+    <h2>连接信息</h2>
+    <div class="serverbox" id="serverbox">
+      <div class="srv-row">
+        <span class="srv-k">状态</span>
+        <span class="srv-v" id="srvState">读取中…</span>
+      </div>
+      <div class="srv-row">
+        <span class="srv-k">访问地址</span>
+        <span class="srv-v" id="srvUrls">—</span>
+      </div>
+      <div class="srv-row">
+        <span class="srv-k">手机加入</span>
+        <span class="srv-v qr-wrap">
+          <canvas id="qrCanvas" width="184" height="184" title="手机扫一扫，直接打开这一页"></canvas>
+          <div class="qr-url" id="qrUrl"></div>
+        </span>
+      </div>
+      <div class="srv-actions">
+        <button id="srvShutdown" class="danger" disabled>停止共享</button>
+        <button id="srvRefresh" class="ghost">刷新</button>
+      </div>
+      <div class="srv-note" id="srvNote"></div>
+    </div>
+  </section>
+
+  <section class="col right">
+    <div class="chat">
+      <div class="chat-head">
+        <h2>群聊 <span class="hint">同一网络下的设备都在这里</span></h2>
+        <div class="chat-tools">
+          <span class="tl">发给</span>
+          <select id="sendTo" disabled></select>
+        </div>
+      </div>
+
+      <div class="chat-body" id="chatBody">
+        <div class="chat-empty" id="chatEmpty">
+          还没有消息
+          <span>说点什么吧，同一网络下的人都能看到<br>点「＋」或把文件拖进来，可以发送文件</span>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <button id="chatFile" class="plus" title="发送文件" disabled>＋</button>
+        <input id="chatText" placeholder="说点什么…" maxlength="2000">
+        <button id="chatSend">发送</button>
+      </div>
+
+      <div class="chat-foot">
+        <span class="thint" id="sendHint"></span>
+      </div>
+    </div>
+
+    <h2>文件传输</h2>
+    <div class="files" id="files">
+      <div class="empty" id="filesEmpty">还没有传过文件<br><span>点聊天栏的「＋」或把文件拖进来</span></div>
+    </div>
+
+    <details class="logbox">
+      <summary>运行详情</summary>
+      <div class="log" id="log"></div>
+    </details>
+  </section>
+</main>
+
+<input type="file" id="fileInput" hidden>
+
+<div class="incoming" id="incoming">
+  <div class="card">
+    <div class="who"></div>
+    <div class="fname"></div>
+    <div class="fsize"></div>
+    <div class="hint"></div>
+    <div class="actions">
+      <button class="reject">拒绝</button>
+      <button class="accept">接收</button>
+    </div>
+  </div>
+</div>
+
+<script src="./qrcode.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# 统一换行符：.bat 必须 CRLF，否则 cmd 解析异常
+* text=auto
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.sh  text eol=lf
+*.js  text eol=lf
+*.md  text eol=lf
+*.png binary
+*.exe binary

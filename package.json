@@ -1,0 +1,13 @@
+{
+  "name": "p2p-fast-transfer",
+  "version": "1.1.2",
+  "private": true,
+  "description": "局域网快传：WebRTC 点对点传文件 + 局域网群聊（不经过互联网）",
+  "scripts": {
+    "start": "node server.js",
+    "stop": "node stop.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
